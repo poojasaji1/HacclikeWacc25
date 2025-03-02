@@ -4,7 +4,7 @@ import os
 
 def makeRequest(user_input):
     key = os.getenv("GENAI_API_KEY")
-    print(key)
+    #print(key)
     client = genai.Client(api_key = key)
     contents = generatePrompt(user_input)
     try:
@@ -39,6 +39,9 @@ def generatePrompt(user_input):
 
 
 #makeRequest("My husband has become very abusive and controlling. He does not let me talk to anyone or even step outside of the house. I want to leave, but I am a SAHM, so I have no money or job, and I can't loose my kids")
-makeRequest("My husband hit me for the first time today. I love him, I dont want to leave. I dont have any money or identity without him. No where to go, no friends...")
+#makeRequest("My husband hit me for the first time today. I love him, I dont want to leave. I dont have any money or identity without him. No where to go, no friends...")
 
 #print(os.environ)
+
+request = input("We are here to help, what's your situation?")
+makeRequest(request)

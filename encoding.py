@@ -4,6 +4,7 @@ from pydub import AudioSegment
 import wave
 import os
 
+
 def text_to_binary(text_message): 
        return ''.join(format(ord(char), '08b') for char in text_message)
 
@@ -155,14 +156,41 @@ def decode_audio_from_image(image_path, output_audio):
 
 
 # # print(text_to_binary("HI"))
-# encode_text_in_image("dog.png", "I am safe", "new_dog.png")
+#encode_text_in_image(input("Source Image:"), input("Message: "), input("New Image Locaiton:"))
 #print(decode_text_from_image("new_dog.png"))
 #encode_audio_in_image("dog.png", "threat.m4a", "threatimage.png")
-decode_audio_from_image("threatimage.png", "recovered.wav")
+#decode_audio_from_image("threatimage.png", "recovered.wav")
 #convert_to_wav("merchant.m4a", "merchant.wav")
 #convert_and_optimize_audio("threat.m4a", "optimized.wav")
 
 
+# def text_encode(): 
+#     text = input("What is the message you wish to encode?")
+#     inputPath = input("Provide the file path for the image you wish to encode")
+#     outputPath = input("Where should we save the output image?")
+#     encode_text_in_image(inputPath, text, outputPath)
 
+# text_encode()
 
-
+choice = input("Do you wish to encode or decode? Select 1 for encode or 2 for decode: ")
+if choice == "1":
+    audioOrText = input("Are we encoding an audio file or a text mesasge? Press 1 for audio or 2 for text: ")
+    if audioOrText == "1": 
+        audio = input("Provide file path for the audio you wish to encode: ")
+        inputPath = input("Provide the file path for the image you wish to encode: ")
+        outputPath = input("Where should we save the output image? ")
+        encode_audio_in_image(inputPath, audio, outputPath)
+    elif audioOrText =="2":
+        text = input("Provide the message you want to encode" )
+        inputPath = input("Provide the file path for the image you wish to encode ")
+        outputPath = input("Where should we save the output image? ")
+        encode_text_in_image(inputPath, text, outputPath)   
+elif choice == "2": 
+    audioOrText = input("Are we decoding to recover a message or an audio file? Press 1 for Audio or 2 for text ")
+    if audioOrText == "1": 
+        image = input("Provide the file path for the image you wish to decode ")
+        outputLoc = input("Where should we save the recovered output audio file? ")
+        decode_audio_from_image(image, outputLoc)
+    elif audioOrText == "2": 
+        image = input("Provide the file path for the image you wish to decode ")
+        print(decode_text_from_image(image))
