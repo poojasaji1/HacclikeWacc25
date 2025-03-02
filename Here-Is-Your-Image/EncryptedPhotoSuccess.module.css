@@ -1,0 +1,96 @@
+.mainContainer {
+  background-color: #00a834;
+  justify-content: center;
+  align-items: flex-start;
+  width: 100%;
+  min-height: 100vh;
+  padding: 96px 20px 0;
+  display: flex;
+}
+
+@media (width<=640px) {
+  .mainContainer {
+    padding: 64px 16px 0;
+  }
+}
+
+.contentWrapper {
+  flex-direction: column;
+  align-items: center;
+  max-width: 872px;
+  display: flex;
+}
+
+.title {
+  color: #fff;
+  text-align: center;
+  letter-spacing: -1px;
+  margin-bottom: 34px;
+  font-family: DM Sans, sans-serif;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 70px;
+}
+
+@media (width<=991px) {
+  .title {
+    margin-bottom: 24px;
+    font-size: 46px;
+    line-height: 56px;
+  }
+}
+
+@media (width<=640px) {
+  .title {
+    margin-bottom: 20px;
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+.message {
+  color: #fff;
+  text-align: center;
+  max-width: 767px;
+  margin-bottom: 350px;
+  font-family: DM Sans, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+@media (width<=991px) {
+  .message {
+    margin-bottom: 250px;
+    font-size: 20px;
+    line-height: 28px;
+  }
+}
+
+@media (width<=640px) {
+  .message {
+    margin-bottom: 200px;
+    font-size: 18px;
+    line-height: 26px;
+  }
+}
+
+.resourcesButton {
+  color: #fff;
+  cursor: pointer;
+  background-color: #34c759;
+  border: none;
+  border-radius: 100px;
+  padding: 22px 91px;
+  font-family: DM Sans, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+}
+
+@media (width<=640px) {
+  .resourcesButton {
+    padding: 18px 60px;
+    font-size: 18px;
+  }
+}

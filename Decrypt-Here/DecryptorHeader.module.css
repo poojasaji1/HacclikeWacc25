@@ -1,0 +1,46 @@
+.title {
+  color: #fff;
+  letter-spacing: -1px;
+  margin-bottom: 34px;
+  font-family: DM Sans, sans-serif;
+  font-size: 58px;
+  font-weight: 700;
+  line-height: 70px;
+}
+
+@media (width<=991px) {
+  .title {
+    font-size: 42px;
+    line-height: 52px;
+  }
+}
+
+@media (width<=640px) {
+  .title {
+    font-size: 32px;
+    line-height: 40px;
+  }
+}
+
+.description {
+  color: #fff;
+  margin-bottom: 34px;
+  font-family: DM Sans, sans-serif;
+  font-size: 22px;
+  font-weight: 500;
+  line-height: 32px;
+}
+
+@media (width<=991px) {
+  .description {
+    font-size: 18px;
+    line-height: 28px;
+  }
+}
+
+@media (width<=640px) {
+  .description {
+    font-size: 16px;
+    line-height: 24px;
+  }
+}

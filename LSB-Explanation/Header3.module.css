@@ -1,0 +1,78 @@
+.header3 {
+  background-color: #fff;
+  flex-wrap: wrap;
+  justify-content: space-between;
+  align-self: stretch;
+  align-items: center;
+  gap: 40px 100px;
+  padding: 111px 114px;
+  font-family: DM Sans, -apple-system, Roboto, Helvetica, sans-serif;
+  display: flex;
+  overflow: hidden;
+}
+
+@media (width <= 991px) {
+  .header3 {
+    padding: 100px 20px;
+  }
+}
+
+.text {
+  color: #a7a7a7;
+  letter-spacing: -0.4px;
+  border-radius: 0;
+  align-self: stretch;
+  width: 600px;
+  min-width: 240px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding: 1px;
+  font-size: 42px;
+  font-weight: 700;
+  line-height: 52px;
+}
+
+@media (width <= 991px) {
+  .text {
+    max-width: 100%;
+  }
+}
+
+.video {
+  color: #151439;
+  border-radius: 10px;
+  align-self: stretch;
+  width: 470px;
+  min-width: 240px;
+  margin-top: auto;
+  margin-bottom: auto;
+  padding-bottom: 9px;
+  font-size: 18px;
+  font-weight: 500;
+  line-height: 28px;
+}
+
+@media (width <= 991px) {
+  .video {
+    max-width: 100%;
+  }
+}
+
+.img {
+  aspect-ratio: 1.84;
+  object-fit: contain;
+  object-position: center;
+  border-radius: 10px;
+  width: 100%;
+}
+
+@media (width <= 991px) {
+  .img {
+    max-width: 100%;
+  }
+}
+
+.wemadeitsobeutif {
+  width: 350px;
+  margin-top: 31px;
+}

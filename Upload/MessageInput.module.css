@@ -1,0 +1,54 @@
+.messageInput {
+  gap: 38px;
+  width: 100%;
+  max-width: 579px;
+  display: flex;
+}
+
+@media (width<=640px) {
+  .messageInput {
+    flex-direction: column;
+  }
+}
+
+.inputBox {
+  color: #fff6;
+  box-sizing: border-box;
+  border: 2px solid #fff3;
+  border-radius: 10px;
+  flex: 1;
+  height: 101px;
+  padding: 13px 19px;
+  font-family: DM Sans, sans-serif;
+  font-size: 16px;
+  line-height: 26px;
+  background: transparent;
+  resize: none;
+}
+
+@media (width<=640px) {
+  .inputBox {
+    width: 100%;
+  }
+}
+
+.sendButton {
+  color: #fff;
+  letter-spacing: -0.25px;
+  background-color: #34c759;
+  border: none;
+  border-radius: 30px;
+  align-self: center;
+  width: 120px;
+  height: 63px;
+  font-family: Poppins, sans-serif;
+  font-size: 20px;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+@media (width<=640px) {
+  .sendButton {
+    width: 100%;
+  }
+}

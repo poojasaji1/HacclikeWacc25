@@ -1,0 +1,32 @@
+.uploadButton {
+  color: #fff;
+  cursor: pointer;
+  background-color: #34c759;
+  border: none;
+  border-radius: 100px;
+  width: 280px;
+  height: 70px;
+  margin: 0 auto;
+  font-family: DM Sans, sans-serif;
+  font-size: 20px;
+  font-weight: 500;
+  line-height: 26px;
+  transition: background-color 0.2s ease;
+}
+
+.uploadButton:hover {
+  background-color: #2db14e;
+}
+
+.uploadButton:focus {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+@media (width<=640px) {
+  .uploadButton {
+    width: 240px;
+    height: 60px;
+    font-size: 18px;
+  }
+}
