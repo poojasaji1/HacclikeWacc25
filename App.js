@@ -1,5 +1,27 @@
 import React, { useState, useEffect } from 'react';
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
 import './App.css';
+
+import Header from './components/Header';
+import HowItWorks from './components/HowItWorks';
+import MainContent from './components/MainContent';
+
+// Import your encryption components
+import MessageInput from './components/MessageInput';
+import MessageUploader from './components/MessageUploader';
+import UploadControl from './components/UploadControls';
+import UploadHeader from './components/UploadHeader';
+import Header3 from './components/Header3';
+import ImageGallerySelection from './components/ImageGallerySelection';
+import EncryptedPhotoSuccess from './components/EncryptedPhotoSuccess';
+import ResourcesPage from './components/ResourcesPage';
+import TeamSection from './components/TeamSection';
+import DecryptorHeader from './components/DecryptorHeader';
+import ImageDecryptor from './components/ImageDecryptor';
+import ResourcesSection from './components/ResourcesSection';
+import GeneralResources from './components/GeneralResources';
+
+
 
 function App() {
   const [inputText, setInputText] = useState('');
@@ -8,9 +30,8 @@ function App() {
   const [error, setError] = useState('');
   const [serverStatus, setServerStatus] = useState('Checking...');
 
-  // Check if the server is running when the component mounts
   useEffect(() => {
-    fetch('http://localhost:5001/')  // Updated port to 5001
+    fetch('http://localhost:5001/')
       .then(response => {
         if (response.ok) {
           setServerStatus('Connected');
@@ -33,7 +54,7 @@ function App() {
     
     try {
       console.log('Sending request to Flask server...');
-      const response = await fetch('http://localhost:5001/api/process', {  // Updated port to 5001
+      const response = await fetch('http://localhost:5001/api/process', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -59,42 +80,97 @@ function App() {
     }
   };
 
+  // Home page content component
+  const Home = () => (
+    <div className="App-header">
+      <h1>Text Processor</h1>
+      <div className="server-status">
+        Server Status: <span className={serverStatus === 'Connected' ? 'connected' : 'disconnected'}>
+          {serverStatus}
+        </span>
+      </div>
+      
+      <form onSubmit={handleSubmit}>
+        <input
+          type="text"
+          value={inputText}
+          onChange={(e) => setInputText(e.target.value)}
+          placeholder="Enter some text..."
+          className="text-input"
+        />
+        <button type="submit" disabled={isLoading || serverStatus !== 'Connected'}>
+          {isLoading ? 'Processing...' : 'Process Text'}
+        </button>
+      </form>
+      
+      {error && (
+        <div className="error">
+          {error}
+        </div>
+      )}
+      
+      {result && (
+        <div className="result">
+          <h2>Result:</h2>
+          <p>{result}</p>
+        </div>
+      )}
+    </div>
+  );
+
+  // Encrypt page that combines all your encryption components
+  const Encrypt = () => (
+    <div className="encrypt-container">
+      <div className="encrypt-content">
+        <MessageUploader />
+        <Header3/>
+        <ImageGallerySelection/>
+        <EncryptedPhotoSuccess/>
+      </div>
+    </div>
+  );
+  const Resources = () => (
+    <div className="resources-container">
+      <div className="resources-content">
+       <ResourcesPage/>
+       <ResourcesSection/>
+       <GeneralResources/>
+      </div>
+    </div>
+  );
+  const About = () => (
+    <div className="about-container">
+      <div className="about-content">
+      <TeamSection/>
+      </div>
+    </div>
+  );
+  const Decrypt = () => (
+    <div className="decrypt-container">
+      <div className="decrypt-content">
+      <DecryptorHeader/>
+      <ImageDecryptor/>
+      
+      </div>
+    </div>
+  );
+
   return (
     <div className="App">
-      <header className="App-header">
-        <h1>Text Processor</h1>
-        <div className="server-status">
-          Server Status: <span className={serverStatus === 'Connected' ? 'connected' : 'disconnected'}>
-            {serverStatus}
-          </span>
+      <Router>
+        <Header />
+        {/* Main content that will change based on route */}
+        <div className="main-content">
+          <Routes>
+            <Route path="/" element={<Home />} />
+            <Route path="/how-it-works" element={<HowItWorks />} />
+            <Route path="/encrypt" element={<Encrypt />} />
+            <Route path="/resources" element={<Resources />} />
+            <Route path="/about" element={<About />} />
+            <Route path="/decrypt" element={<Decrypt />} />
+          </Routes>
         </div>
-        
-        <form onSubmit={handleSubmit}>
-          <input
-            type="text"
-            value={inputText}
-            onChange={(e) => setInputText(e.target.value)}
-            placeholder="Enter some text..."
-            className="text-input"
-          />
-          <button type="submit" disabled={isLoading || serverStatus !== 'Connected'}>
-            {isLoading ? 'Processing...' : 'Process Text'}
-          </button>
-        </form>
-        
-        {error && (
-          <div className="error">
-            {error}
-          </div>
-        )}
-        
-        {result && (
-          <div className="result">
-            <h2>Result:</h2>
-            <p>{result}</p>
-          </div>
-        )}
-      </header>
+      </Router>
     </div>
   );
 }
