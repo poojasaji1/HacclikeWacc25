@@ -1,5 +1,5 @@
 # HackLikeW@CC25
-## StegaoStorage
+## StegoStorage
 StegoStorage uses stegnanography to hide messages and files in images that do not look suspicious. Stegnaography is the practice of using images, files, or text to hide messages. It is sometimes associated with cryptography (the practice of using codes to hide messages and other information), but the difference is that stegnaography works to conceal any suspicion in the generated files (while crytography does not).
 
 ## Design and Features
